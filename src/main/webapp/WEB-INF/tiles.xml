@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="app/home" template="/WEB-INF/tiles/layout.jsp" preparer="com.spring32.MyPreparer">
+        <put-attribute name="title" value="title" />
+        <put-attribute name="main" value="/WEB-INF/tiles/home.jsp" />
+        <put-list-attribute name="stylesheets">
+            <add-attribute value="assets/bootstrap.min" />
+        </put-list-attribute>
+        <put-list-attribute name="scripts">
+            <add-attribute value="assets/bootstrap.min" />
+        </put-list-attribute>
+    </definition>
+    
+    <definition name="app/user" extends="app/home">
+        <put-attribute name="main" value="/WEB-INF/tiles/user.jsp" />
+        <put-list-attribute name="scripts" inherit="true">
+            <add-attribute value="assets/newish" />
+        </put-list-attribute>
+    </definition>
+ 
+    <definition name="title" template="/WEB-INF/tiles/title.jsp">
+        <put-attribute name="title" value="Stuff" />
+    </definition>
+</tiles-definitions>
